@@ -1,0 +1,17 @@
+<div class="row page_nav_row">
+    <div class="col">
+        <div class="page_nav d-flex flex-row align-items-center justify-content-center">
+            <ul class="d-flex flex-row">
+                {% if articles.has_previous %}
+                <li class="active"><a href="?page={{ articles.previous_page_number }}"><</a></li>
+                {% endif %}
+                {% for page_item in articles.paginator.page_rage %}
+                <li class="{% if page_item == articles.number %}active{% endif %}"><a href="?page={{ page_item }}"><span>{{ page_item }}</span></a></li>
+                {% endfor %}
+                {% if articles.has_next %}
+                <li><a href="?page={{ articles.next_page_number }}">></a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
